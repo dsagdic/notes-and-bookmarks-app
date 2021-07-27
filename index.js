@@ -9,13 +9,18 @@ const tabBtn = document.getElementById('tab-btn');
 function render(notes) {
   let listItems = '';
   for (let i = 0; i < notes.length; i += 1) {
-    if (notes[i][0] === 'link') {
+    if (notes[i][0] === 'icon') {
       listItems += `
             <li>
+                <img src='${notes[i][1]}'/>               
+        `;
+    } else if (notes[i][0] === 'link') {
+      listItems += `
+            
                 <a target='_blank' href='${notes[i][1]}'>
                     ${notes[i][1]}
                 </a>
-                <hr>
+                
             </li>
         `;
     } else if (notes[i][0] === 'text') {
@@ -24,7 +29,6 @@ function render(notes) {
                 <p>
                     ${notes[i][1]}
                 </p>
-                <hr>
             </li>
         `;
     }
@@ -40,6 +44,8 @@ if (notesFromLocalStorage) {
 tabBtn.addEventListener('click', () => {
   // eslint-disable-next-line
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    myNotes.push(['icon', tabs[0].favIconUrl]);
+    localStorage.setItem('myNotes', JSON.stringify(myNotes));
     myNotes.push(['link', tabs[0].url]);
     localStorage.setItem('myNotes', JSON.stringify(myNotes));
     render(myNotes);
