@@ -9,13 +9,25 @@ const tabBtn = document.getElementById('tab-btn');
 function render(notes) {
   let listItems = '';
   for (let i = 0; i < notes.length; i += 1) {
-    listItems += `
+    if (notes[i][0] === 'link') {
+      listItems += `
             <li>
-                <a target='_blank' href='${notes[i]}'>
-                    ${notes[i]}
+                <a target='_blank' href='${notes[i][1]}'>
+                    ${notes[i][1]}
                 </a>
+                <hr>
             </li>
         `;
+    } else if (notes[i][0] === 'text') {
+      listItems += `
+            <li>
+                <p>
+                    ${notes[i][1]}
+                </p>
+                <hr>
+            </li>
+        `;
+    }
   }
   ulEl.innerHTML = listItems;
 }
@@ -28,8 +40,8 @@ if (notesFromLocalStorage) {
 tabBtn.addEventListener('click', () => {
   // eslint-disable-next-line
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    myNotes.push(tabs[0].url);
-    localStorage.setItem('mynotes', JSON.stringify(myNotes));
+    myNotes.push(['link', tabs[0].url]);
+    localStorage.setItem('myNotes', JSON.stringify(myNotes));
     render(myNotes);
   });
 });
@@ -41,8 +53,8 @@ deleteBtn.addEventListener('dblclick', () => {
 });
 
 inputBtn.addEventListener('click', () => {
-  myNotes.push(inputEl.value);
+  myNotes.push(['text', inputEl.value]);
   inputEl.value = '';
-  localStorage.setItem('mynotes', JSON.stringify(myNotes));
+  localStorage.setItem('myNotes', JSON.stringify(myNotes));
   render(myNotes);
 });
