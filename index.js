@@ -18,7 +18,7 @@ function render(notes) {
       listItems += `
             
                 <a target='_blank' href='${notes[i][1]}'>
-                    ${notes[i][1]}
+                    ${notes[i][2]}
                 </a>
                 
             </li>
@@ -46,7 +46,7 @@ tabBtn.addEventListener('click', () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     myNotes.push(['icon', tabs[0].favIconUrl]);
     localStorage.setItem('myNotes', JSON.stringify(myNotes));
-    myNotes.push(['link', tabs[0].url]);
+    myNotes.push(['link', tabs[0].url, tabs[0].title]);
     localStorage.setItem('myNotes', JSON.stringify(myNotes));
     render(myNotes);
   });
