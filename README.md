@@ -1,18 +1,17 @@
-
 # Notes and Bookmarks
 
-Take notes and save bookmarks with Notes and Bookmarks chrome extension.
+Take notes and save bookmarks with Notes and Bookmarks chrome extension. Notes and Bookmarks saves your notes in localstorage, so even if you close the browser your notes remain the same. Notes and Bookmarks uses Google Chrome API to fetch url links and bookmark icons.
 
 ## Features
 
 - Save Bookmarks
-![App Screenshot](https://user-images.githubusercontent.com/48086487/127182562-a324e5fc-3e40-450e-8311-7c7fcd9ba449.gif)
+  ![App Screenshot](https://user-images.githubusercontent.com/48086487/127315418-b1b4e0b0-aca1-4706-af94-4828772401c2.gif)
 - Take Notes
-![App Screenshot](https://user-images.githubusercontent.com/48086487/127184566-09608f70-1c71-4e11-bfd3-e79611bee7cc.gif)
+  ![App Screenshot](https://user-images.githubusercontent.com/48086487/127315409-ddaf728c-94b9-4085-9353-70e0f00e0a4f.gif)
 - Delete All with Double Click
-![App Screenshot](https://user-images.githubusercontent.com/48086487/127184800-d8a835f1-513d-4214-a1e4-354462645f93.gif)
+  ![App Screenshot](https://user-images.githubusercontent.com/48086487/127315415-2edf4e96-0f58-4864-9782-b78ef1365eec.gif)
 
 ## Demo
-Although you can't save your bookmarks from netlify, you can try other features.       
-https://notes-and-bookmarks-dsagdic.netlify.app/
 
+Although you can't save your bookmarks from netlify, you can try other features.  
+https://notes-and-bookmarks-dsagdic.netlify.app/
