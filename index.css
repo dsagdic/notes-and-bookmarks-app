@@ -20,8 +20,9 @@ button {
   color: #f1faee;
   padding: 10px 20px;
   border: 1px solid #e63946;
-  font-weight: bold;
-  width: 32.9%;
+  font-weight: 400;
+  vertical-align: top;
+  width: 24.5%;
 }
 
 #delete-btn {

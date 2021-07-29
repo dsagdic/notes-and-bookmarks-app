@@ -5,6 +5,7 @@ const ulEl = document.getElementById('ul-el');
 const deleteBtn = document.getElementById('delete-btn');
 const notesFromLocalStorage = JSON.parse(localStorage.getItem('myNotes'));
 const tabBtn = document.getElementById('tab-btn');
+const allTabsBtn = document.getElementById('all-tabs-btn');
 
 function render(notes) {
   let listItems = '';
@@ -45,8 +46,19 @@ tabBtn.addEventListener('click', () => {
   // eslint-disable-next-line
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     myNotes.push(['icon', tabs[0].favIconUrl]);
-    localStorage.setItem('myNotes', JSON.stringify(myNotes));
     myNotes.push(['link', tabs[0].url, tabs[0].title]);
+    localStorage.setItem('myNotes', JSON.stringify(myNotes));
+    render(myNotes);
+  });
+});
+
+allTabsBtn.addEventListener('click', () => {
+  // eslint-disable-next-line
+  chrome.tabs.query({ windowType: 'normal' }, (tabs) => {
+    for (let i = 0; i < tabs.length; i += 1) {
+      myNotes.push(['icon', tabs[i].favIconUrl]);
+      myNotes.push(['link', tabs[i].url, tabs[i].title]);
+    }
     localStorage.setItem('myNotes', JSON.stringify(myNotes));
     render(myNotes);
   });
