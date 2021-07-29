@@ -6,6 +6,8 @@ Take notes and save bookmarks with Notes and Bookmarks chrome extension. Notes a
 
 - Save Bookmarks
   ![App Screenshot](https://user-images.githubusercontent.com/48086487/127315418-b1b4e0b0-aca1-4706-af94-4828772401c2.gif)
+- Save All Open Tabs as Bookmarks
+  ![App Screenshot](https://user-images.githubusercontent.com/48086487/127526596-80d08b9b-5b42-4153-85c0-077593a2f0e1.gif)
 - Take Notes
   ![App Screenshot](https://user-images.githubusercontent.com/48086487/127315409-ddaf728c-94b9-4085-9353-70e0f00e0a4f.gif)
 - Delete All with Double Click
